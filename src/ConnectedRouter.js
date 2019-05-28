@@ -57,8 +57,9 @@ const createConnectedRouter = (structure) => {
           this.inTimeTravelling = false
         }
       }
-
-      // Listen to history changes
+  
+      // Listen to history changes更改，则触发
+      // 监听history更改，则触发LOCATION_CHANGE，更改router: { history, location }
       this.unlisten = history.listen(handleLocationChange)
       // Dispatch a location change action for the initial location.
       // This makes it backward-compatible with react-router-redux.
@@ -86,16 +87,16 @@ const createConnectedRouter = (structure) => {
     store: PropTypes.shape({
       getState: PropTypes.func.isRequired,
       subscribe: PropTypes.func.isRequired,
-    }).isRequired,
+    }).isRequired, // 通过Context.Consumer提供
     history: PropTypes.shape({
       action: PropTypes.string.isRequired,
       listen: PropTypes.func.isRequired,
       location: PropTypes.object.isRequired,
       push: PropTypes.func.isRequired,
-    }).isRequired,
+    }).isRequired, // 用户输入
     basename: PropTypes.string,
     children: PropTypes.oneOfType([ PropTypes.func, PropTypes.node ]),
-    onLocationChanged: PropTypes.func.isRequired,
+    onLocationChanged: PropTypes.func.isRequired, // 通过react-redux的connect高阶组件提供
   }
 
   const mapDispatchToProps = dispatch => ({

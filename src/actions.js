@@ -34,6 +34,7 @@ const updateLocation = (method) => {
  * These actions correspond to the history API.
  * The associated routerMiddleware will capture these events before they get to
  * your reducer and reissue them as the matching function on your history.
+ * 这些action对应history API，关联的routerMiddleware将在它们到达reducer之前捕获CALL_HISTORY_METHOD事件，并将它们重新发布为历史记录中的匹配功能
  */
 export const push = updateLocation('push')
 export const replace = updateLocation('replace')

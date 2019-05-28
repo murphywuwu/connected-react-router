@@ -4,6 +4,8 @@ import counterReducer from './counter'
 
 const rootReducer = (history) => combineReducers({
   count: counterReducer,
+  // connectRouter作用：生成reducer。
+  // 传入history，初始化reducer中的location以及action
   router: connectRouter(history)
 })
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+// 消费全局状态router.location
 const HelloChild = ({ pathname, search, hash }) => (
   <div>
     Hello-Child

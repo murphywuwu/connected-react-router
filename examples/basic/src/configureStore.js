@@ -12,6 +12,7 @@ export default function configureStore(preloadedState) {
     preloadedState,
     composeEnhancer(
       applyMiddleware(
+        // routerMiddleware作用：
         routerMiddleware(history),
       ),
     ),

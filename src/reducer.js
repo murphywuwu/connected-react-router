@@ -7,6 +7,7 @@ const createConnectRouter = (structure) => {
   } = structure
 
   const createRouterReducer = (history) => {
+    // 全局提供location以及action数据
     const initialRouterState = fromJS({
       location: history.location,
       action: history.action,
@@ -21,6 +22,7 @@ const createConnectRouter = (structure) => {
         const { location, action, isFirstRendering } = payload
         // Don't update the state ref for the first rendering
         // to prevent the double-rendering issue on initilization
+        // 第一次渲染，不需要更新state为了防止初始时，重复更新
         return isFirstRendering
           ? state
           : merge(state, { location: fromJS(location), action })
